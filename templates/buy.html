@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy
+{% endblock %}
+
+{% block main %}
+    <form action="{{ url_for('buy') }}" method="post">
+        <fieldset>
+            <div class="form-group">
+                <table>
+                    <tr>
+                        <th>Quote</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                    </tr>
+                    <tr>
+                        <form>
+                            <td name = "symbol">{{ symbol }}</td>
+                            <td name = "name">{{ name }}</td>
+                            <td name = "price">{{ price }}</td>
+                        </form>
+                        <td>
+                            <div>
+                            <input autocomplete="off" autofocus class="form-table" name="quantity" value="1" type="text"/>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="button">
+                <button class="btn btn-default" type="submit">Buy</button>
+            </div>
+        </fieldset>
+    </form>
+{% endblock %}

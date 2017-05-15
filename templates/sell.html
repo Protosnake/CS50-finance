@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell
+{% endblock %}
+
+{% block main %}
+    <form action="{{ url_for('sell') }}" method="post">
+        <fieldset>
+            <div class="form-group">
+                <table>
+                    <tr>
+                        <th>Quote</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total Price</th>
+                        <th>Quantity to sell</th>
+                    </tr>
+                    {% for share in portfolio %}
+                    <tr name = "{{ share.symbol }}">
+                        <td name = "symbol"> {{ share.symbol }} </td>
+                        <td name = "name">{{ share.name }}</td>
+                        <td name = "price">{{ share.price }}</td>
+                        <td name = "quantity">{{ share.quantity }}</td>
+                        <td name = "total price">{{ share.combined_price }}</td>
+                        <td>
+                            <input autocomplete="off" autofocus class="form-table" name="{{ share.symbol }}" value="0" type="text"/>
+                        </td>
+                    {% endfor %}
+                    </tr>
+                </table>
+            </div>
+        
+            <div class="form-group">
+                    <button class="btn btn-sell" type="submit">Sell</button>
+            </div>
+        </fieldset>
+    </form>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <form action="{{ url_for('index') }}" method="get">
+        <fieldset>
+            <div class="form-group">
+                <table>
+                    <tr>
+                        <th>Quote</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total Price</th>
+                    </tr>
+                    {% for share in portfolio %}
+                    <tr>
+                        <td name = "symbol"> {{ share.symbol }} </td>
+                        <td name = "name">{{ share.name }}</td>
+                        <td name = "price">{{ share.price }}</td>
+                        <td name = "quantity">{{ share.quantity }}</td>
+                        <td name = "total price">{{ share.combined_price }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <div>
+                <b text-align="left">Total: </b>
+                <b text-align="right">{{ total_cost }}</b>
+            </div>
+            <div>
+                <b class="total">Cash: {{ cash }}</b>
+            </div>
+        </fieldset>
+    </form>
+{% endblock %}
