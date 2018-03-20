@@ -10,5 +10,5 @@ Features:
 - Viewing your portfolio
 
 Stack:
-- Python/Flask for BE
-- native JS, CSS and HTML (bootstrap) for frontend
+- Python/Flask for B2E
+- CSS and HTML (bootstrap) for F2E
