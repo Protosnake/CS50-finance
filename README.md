@@ -12,3 +12,6 @@ Features:
 Stack:
 - Python/Flask for B2E
 - CSS and HTML (bootstrap) for F2E
+
+# Installation
+pip install -r requirements.txt
